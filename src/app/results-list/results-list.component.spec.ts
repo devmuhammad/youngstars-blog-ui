@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResultsListComponent } from './results-list.component';
-import { SearchFieldComponent } from '../search-field/search-field.component';
+import { AuthComponent } from '../auth/auth.component';
 import { FooterComponent } from '../footer/footer.component';
 import { LoadingBarService } from 'ngx-loading-bar';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,7 @@ describe('ResultsListComponent', () => {
       imports:[FormsModule, HttpClientModule], 
       providers:[NgRedux, LoadingBarService,
       ],
-      declarations: [SearchFieldComponent,FooterComponent, ResultsListComponent ]
+      declarations: [AuthComponent,FooterComponent, ResultsListComponent ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed, inject, fakeAsync } from '@angular/core/testing';
 
-import { SearchFieldComponent } from './search-field.component';
+import { AuthComponent } from './auth.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from '../footer/footer.component'
 import { ResultsListComponent } from '../results-list/results-list.component'
@@ -13,22 +13,22 @@ import { searchResult } from '../store/interface'
 
 
 
-describe('SearchFieldComponent', () => {
-  let component: SearchFieldComponent;
-  let fixture: ComponentFixture<SearchFieldComponent>;
+describe('AuthComponent', () => {
+  let component: AuthComponent;
+  let fixture: ComponentFixture<AuthComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports:[FormsModule, HttpClientModule], 
       providers:[NgRedux, LoadingBarService,
       ],
-      declarations: [ SearchFieldComponent, FooterComponent, ResultsListComponent ]
+      declarations: [ AuthComponent, FooterComponent, ResultsListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(async () => {
-    fixture = TestBed.createComponent(SearchFieldComponent);
+    fixture = TestBed.createComponent(AuthComponent);
     component = fixture.componentInstance;
     
     component.ngOnInit = () => {} 

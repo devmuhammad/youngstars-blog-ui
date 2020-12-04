@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SearchFieldComponent } from './search-field/search-field.component'
+import { AuthComponent } from './auth/auth.component'
 
 // const routes: Routes = [];
  const routes: Routes = [
   {
-    path: '',  component: SearchFieldComponent
+    path: '',  component: AuthComponent
     
   }
 ]

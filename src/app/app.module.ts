@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { SearchFieldComponent } from './search-field/search-field.component';
+import { AuthComponent } from './auth/auth.component';
 import { ResultsListComponent } from './results-list/results-list.component';
 
 import {LoadingBarModule, LoadingBarService} from "ngx-loading-bar";
@@ -17,7 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchFieldComponent,
+    AuthComponent,
     ResultsListComponent,
     FooterComponent
   ],

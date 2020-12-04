@@ -9,11 +9,11 @@ import { ImagesService } from '../services/images.service'
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'app-search-field',
-    templateUrl: './search-field.component.html',
-    styleUrls: ['./search-field.component.scss']
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.scss']
 })
-export class SearchFieldComponent implements OnInit {
+export class AuthComponent implements OnInit {
     name = 'Search Field';
 
     searchKey: string = ''
