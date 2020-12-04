@@ -1,0 +1,53 @@
+<div class="w-full flex flex-col lg:flex-row">
+    <div class="lg:w-1/2 flex flex-1 justify-center lg:pt-5">
+        <img [src]="imgDetails.images.downsized_large.url" />         
+    </div>
+    <div class="lg:w-1/2 flex">
+        <div class="bg-white w-full shadow overflow-hidden sm:rounded-lg">
+            <div class="px-4 py-2 lg:py-5 border-b border-gray-200 sm:px-6">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">
+                {{imgDetails.title}}
+              </h3>
+              <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+                {{imgDetails.username}}
+              </p>
+            </div>
+            <div>
+              <dl>
+                <div class="bg-gray-50 px-4 py-2 lg:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm leading-5 font-medium text-gray-500">
+                    Slug
+                  </dt>
+                  <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                    {{imgDetails.slug}}
+                  </dd>
+                </div>
+                <div class="bg-white px-4 py-2 lg:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm leading-5 font-medium text-gray-500">
+                    Image Type
+                  </dt>
+                  <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                    {{imgDetails.type}}
+                  </dd>
+                </div>
+                <div class="bg-gray-50 px-4 py-2 lg:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm leading-5 font-medium text-gray-500">
+                    Image Rating
+                  </dt>
+                  <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                    {{imgDetails.rating}}
+                  </dd>
+                </div>
+                <div class="bg-white px-4 py-2 lg:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm leading-5 font-medium text-gray-500">
+                    Date
+                  </dt>
+                  <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+                    {{imgDetails.import_datetime}}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+        </div>
+    </div>
+</div>
