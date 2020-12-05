@@ -1,15 +1,15 @@
 
 
-#mainpg:focus-within  {
-    justify-content: flex-start;
+// #mainpg:focus-within  {
+//     justify-content: flex-start;
     
-    &:after{
-        animation: click-animation .6s linear;
-        animation-fill-mode: backwards;
-        // transition: opacity 250ms 5s ease; 
-        // transition-delay: 250ms;
-    }
-}
+//     &:after{
+//         animation: click-animation .6s linear;
+//         animation-fill-mode: backwards;
+//         // transition: opacity 250ms 5s ease; 
+//         // transition-delay: 250ms;
+//     }
+// }
 
 @keyframes click-animation {
     0% {

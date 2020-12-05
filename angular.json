@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gif-app",
+            "outputPath": "dist/youngstars-blog",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-builders/dev-server:generic",
           "options": {
-            "browserTarget": "gif-app:build"
+            "browserTarget": "youngstars-blog:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gif-app:build:production"
+              "browserTarget": "youngstars-blog:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gif-app:build"
+            "browserTarget": "youngstars-blog:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "gif-app-e2e": {
+    "youngstars-blog-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "gif-app:serve"
+            "devServerTarget": "youngstars-blog:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gif-app:serve:production"
+              "devServerTarget": "youngstars-blog:serve:production"
             }
           }
         },
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "gif-app"
+  "defaultProject": "youngstars-blog"
 }
