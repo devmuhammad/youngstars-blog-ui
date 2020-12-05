@@ -14,20 +14,13 @@ import { Observable } from 'rxjs';
     styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-    name = 'Search Field';
+    name = 'Auth Component';
 
-    searchKey: string = ''
-    searched: boolean = false
-    showResult: boolean = false
-    imgDetails: any = {}
-    limit: number = 25
-    offset: number = 0
-    currPage: number = 1
+    login: boolean = true
+    
 
     constructor(
         private ngRedux: NgRedux<InitialState>,
-        private imageService: ImagesService,
-        private loadingBarService: LoadingBarService
     ) {
     }
     
@@ -40,64 +33,7 @@ export class AuthComponent implements OnInit {
         this.srchResults$.subscribe(srchResults => this.srchResults = srchResults)
 
     }
+   
 
-    async searchImages(){
-        this.showResult = false
-        const search = {
-            searchKey: this.searchKey,
-            limit:this.limit,
-            offset:this.offset
-        }
-        await this.loadingBarService.start();
-        await this.imageService.searchImages(search)
-        this.searched = true
-    }
-
-    goBack(){
-        this.showResult = false
-    }
-
-    async nextPage(){
-        this.currPage += 1
-
-        this.offset = await this.limit*this.currPage
-
-        const search = {
-            searchKey: this.searchKey,
-            limit:this.limit,
-            offset:this.offset
-        }
-        await this.loadingBarService.start();
-        await this.imageService.searchImages(search)
-    }
-
-    async backPage(){
-        this.currPage -= this.currPage == 1 ? 0 : 1
-
-        this.offset = await this.limit*this.currPage
-        const search = {
-            searchKey: this.searchKey,
-            limit:this.limit,
-            offset:this.offset
-        }
-        await this.loadingBarService.start();
-        await this.imageService.searchImages(search)
-    }
-
-    async viewDetails(det){
-        this.imgDetails = det
-        this.showResult = true
-    }
-
-    research(){
-        this.showResult = false
-        this.searched = false
-     }
-
-    clearSearch(){
-        this.searchKey = ''
-        
-        this.showResult = false
-        this.searched = false
-    }
+   
 }

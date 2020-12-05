@@ -13,13 +13,19 @@ import { NgReduxModule, NgRedux } from '@angular-redux/store';
 
 import { ItemsReducer, InitialState, initialState } from './store/reducers';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     ResultsListComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

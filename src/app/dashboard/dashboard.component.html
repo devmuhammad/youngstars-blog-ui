@@ -1,0 +1,76 @@
+<div class="flex h-screen flex-col">
+  <header class="bg-white shadow ">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
+      <h1 class="text-2xl text-teal-600 font-bold leading-tight text-gray-900">
+        <i class="fa fa-tachometer fa-1x"></i> Dashboard
+      </h1>
+      <h4 class="text-1xl font-semibold align leading-tight text-gray-700">
+        <i class="fa fa-user-circle fa-1x" ></i> Olacoded
+      </h4>
+    </div>
+  </header>
+  <main class="flex-1 bg-gray-100 ">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      
+      <section class="px-4 sm:px-6 lg:px-4 xl:px-6 pt-4 pb-4 sm:pb-6 lg:pb-4 xl:pb-6 space-y-4">
+        <header class="flex items-center justify-between">
+          <h2 class="text-lg leading-6 font-medium text-black">Channels</h2>
+          <div class="flex flex-row">
+          
+          <button (click)="allchannel = !allchannel" [ngStyle]="{'backgroundColor':allchannel == true ? '#115E59' : '#CCFBF1', 'color': allchannel == true ? '#fff' : '#0D9488'}" class="hover:bg-teal-200 hover:text-teal-800 group flex items-center rounded-md bg-teal-100 text-teal-600 text-sm font-medium px-4 py-2">
+            All Channels
+          </button>
+          <button (click)="allchannel = !allchannel" [ngStyle]="{'backgroundColor':allchannel == false ? '#115E59' : '#CCFBF1', 'color': allchannel == false ? '#fff' : '#0D9488'}" class="hover:bg-teal-200 hover:text-teal-800 group flex items-center rounded-md bg-teal-100 text-teal-600 text-sm font-medium px-4 py-2">
+            My Channels
+          </button>
+        </div>
+        <div></div>
+        </header>
+        <form class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="fa fa-search fa-1x text-gray-700"></i>
+          </div>
+          <input name="searchInput" (ngModelChange)="resetSearch()" [(ngModel)]="searchKey" (keyup.enter)="searchChannels()" class="focus:border-teal-500 focus:ring-1 focus:ring-teal-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10" type="text" aria-label="Filter Channels" placeholder="Filter Channels" />
+        </form>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+          <li *ngFor="let item of channels">
+            <a class="hover:border-transparent bg-white grid grid-cols-2 w-full hover:shadow-lg group block rounded-lg border border-gray-200">
+              
+
+              
+              <dl class="grid sm:block p-4 lg:grid xl:block grid-cols-2 grid-rows-2 items-center">
+                <div>
+                  <dt class="sr-only">Title</dt>
+                  <dd class="group-hover:text-white leading-6 font-medium" [ngStyle]="{'color':item.colortext}">
+                    {{item.title}}
+                  </dd>
+                </div>
+                <div>
+                  <dt class="sr-only">Updates</dt>
+                  <dd class="group-hover:text-teal-200 text-gray-500 text-sm font-medium sm:mb-4 lg:mb-0 xl:mb-4">
+                    {{item.updates}} Updates
+                  </dd>
+                </div>
+                <div class="mt-16">
+
+                <span [ngStyle]="{'background-color':item.colorbg, 'color':item.colortext}" class=" p-2 cursor-pointer text-md rounded-md">
+                  JOIN</span>
+              </div>
+              </dl>
+           
+              <img [src]="item.type" style="height:200px"  class="bg-contain w-full" />
+            
+            </a>
+          </li>
+          <!-- <li class="hover:shadow-lg flex rounded-lg">
+            <a href="/new" class="hover:border-transparent hover:shadow-xs w-full flex items-center justify-center rounded-lg border-2 border-dashed border-gray-200 text-sm font-medium py-4">
+              New Project
+            </a>
+          </li> -->
+        </ul>
+      </section>
+      
+    </div>
+  </main>
+</div>
+
