@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
     await this.loadingBarService.start();
     this.allchannel = false
     await this.channelsService.getMyChannels(this.userDetails.id)
-    this.channels$.subscribe(channels => {console.log(channels); this.channels = channels; this.channelDup = this.channels})
+    this.channels$.subscribe(channels => {this.channels = channels; this.channelDup = this.channels})
     
   }
 
@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit {
     this.username = this.userDetails.username
 
     await this.channelsService.getAllChannels()
-    this.channels$.subscribe(channels => {console.log(channels); this.channels = channels; this.channelDup = this.channels})
+    this.channels$.subscribe(channels => {this.channels = channels; this.channelDup = this.channels})
     
   }
 

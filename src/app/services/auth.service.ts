@@ -7,7 +7,7 @@ import { GetItems, LoadItems } from '../store/actions';
 import { dataResult } from '../store/interface';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DEV_BASE_URL } from './base';
+import { PROD_BASE_URL } from './base';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class AuthService {
        
     let stats = new Subject<string>();
     this.http
-      .post(DEV_BASE_URL+'/users',userDetails)
+      .post(PROD_BASE_URL+'/users',userDetails)
       .subscribe((datares: dataResult) => {
         this.ngRedux.dispatch(GetItems());
         const {password, ...rest} = userDetails
@@ -51,7 +51,7 @@ export class AuthService {
 
    async emailExist(email){
     let status = new Subject<boolean>();
-    await this.http.get(DEV_BASE_URL+'/users?email='+email)
+    await this.http.get(PROD_BASE_URL+'/users?email='+email)
     .subscribe((datares: dataResult) => {
       // this.ngRedux.dispatch(LoadItems(datares));
       if (datares[0]) {
@@ -68,7 +68,7 @@ export class AuthService {
   async usernameExist(username){
     let status = new Subject<boolean>();
     await this.http
-      .get(DEV_BASE_URL+'/users?username='+username)
+      .get(PROD_BASE_URL+'/users?username='+username)
       .subscribe((datares: dataResult) => {
         // this.ngRedux.dispatch(LoadItems(datares));
         if (datares[0]) {
@@ -86,7 +86,7 @@ export class AuthService {
 
    login(loginDet): Observable<any> {
   return this.http
-    .get(DEV_BASE_URL+'/users?email='+loginDet.email+'&password='+loginDet.password)
+    .get(PROD_BASE_URL+'/users?email='+loginDet.email+'&password='+loginDet.password)
       
   }
 }

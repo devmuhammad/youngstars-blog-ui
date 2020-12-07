@@ -8,7 +8,7 @@
     import { NgRedux } from '@angular-redux/store';
     import { InitialState } from '../store/reducers';
     import { LoadItems } from '../store/actions';
-import { DEV_BASE_URL } from './base';
+import { PROD_BASE_URL } from './base';
 import { Subject, Observable } from 'rxjs';
 
 @Injectable({
@@ -25,7 +25,7 @@ export class ChannelsService {
   getAllChannels() {
    
     this.http
-      .get(DEV_BASE_URL+'/channels')
+      .get(PROD_BASE_URL+'/channels')
       .subscribe((datares: dataResult) => {
         this.ngRedux.dispatch(LoadItems(datares));
         this.loadingBarService.complete()
@@ -34,13 +34,13 @@ export class ChannelsService {
 
   getChannelDetail(channelid){
     return this.http
-    .get(DEV_BASE_URL+'/channels?id='+channelid)
+    .get(PROD_BASE_URL+'/channels?id='+channelid)
   }
 
   getMyChannels(userid) {
     
     this.http
-      .get(DEV_BASE_URL+'/userchannels?userid='+userid)
+      .get(PROD_BASE_URL+'/userchannels?userid='+userid)
       .subscribe((datares: [dataResult]) => {
         let myChannels = []
         let fetchCount = 0
@@ -64,7 +64,7 @@ export class ChannelsService {
   joinChannel(details){
     let stats = new Subject<string>();
     this.http
-      .post(DEV_BASE_URL+'/userchannels',details)
+      .post(PROD_BASE_URL+'/userchannels',details)
       .subscribe((datares: dataResult) => {
         // this.ngRedux.dispatch(GetItems());
         
@@ -77,7 +77,7 @@ export class ChannelsService {
   async checkChannel(details){
     let status = new Subject<boolean>();
 
-    await this.http.get(DEV_BASE_URL+'/userchannels?userid='+details.userid+'&channelid='+details.channelid)
+    await this.http.get(PROD_BASE_URL+'/userchannels?userid='+details.userid+'&channelid='+details.channelid)
     .subscribe((datares: dataResult) => {
       // this.ngRedux.dispatch(LoadItems(datares));
       if (datares[0]) {

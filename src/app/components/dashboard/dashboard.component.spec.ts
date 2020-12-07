@@ -42,10 +42,14 @@ describe('DashboardComponent', () => {
 
   it('user can join multiple channels'), () => {
       userChannel.forEach((element) => {
+        component.joinChannel(element)
+      // send post request to insert array of multiple channels for a user
 
-      // send post request to insert array of channels for a user
-
-      //check length of array to be equal to 3
       })
+      //check length of array to be equal to 3
+      component.channels$.subscribe(channels => {
+        expect(channels.data.length).toEqual(3)
+      })
+      
   }
 });
