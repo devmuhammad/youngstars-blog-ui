@@ -1,11 +1,11 @@
 
 
 import { ActionTypes } from './actions';
-import { searchResult } from './interface';
+import { dataResult } from './interface';
 
 
 export interface InitialState {
-    items: Array<searchResult>;
+    items: Array<dataResult>;
   }
 
 export const initialState = {

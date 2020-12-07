@@ -2,8 +2,10 @@
 
  export enum ActionTypes {
     
-    LoadItems = '[Images] Load items from server',
-    LoadSuccess = '[Images] Load success'
+    LoadItems = '[Channels] Load items from server',
+    LoadSuccess = '[Channels] Load success',
+    LoginDetails = '[Auth] Return login details',
+    RegisterDetails = '[Auth] Return registration details'
   }
 
   export const GetItems = () => ({
@@ -13,4 +15,14 @@
   export const LoadItems = payload => ({
     type: ActionTypes.LoadSuccess,
     payload
+  });
+
+  export const LoginDet = payload => ({
+    type: ActionTypes.LoginDetails,
+    payload
+  });
+
+  export const RegDet = () => ({
+    type: ActionTypes.RegisterDetails,
+    
   });
