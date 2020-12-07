@@ -1,8 +1,8 @@
 import { TestBed, fakeAsync } from '@angular/core/testing';
 
 import { of, Observable } from 'rxjs'; 
-import { ImagesService } from './images.service';
-import {searchResult} from '../store/interface'
+import { ChannelsService } from './channels.service';
+import {dataResult} from '../store/interface'
 import { HttpClientModule } from '@angular/common/http';
 import { NgRedux } from '@angular-redux/store';
 import {LoadingBarService} from "ngx-loading-bar";
@@ -10,32 +10,32 @@ import { inject } from '@angular/core';
 
 
 class MockMyService {
-  public data: searchResult[];
-  public getData(): Observable<searchResult[]> {
+  public data: dataResult[];
+  public getData(): Observable<dataResult[]> {
     // this.data = results;
     return of(this.data);
   }
 }
 
-describe('ImagesService', () => {
-  let imagesService: ImagesService; 
+describe('ChannelsService', () => {
+  let imagesService: ChannelsService; 
   
 
   beforeEach(() => {
     TestBed.configureTestingModule({
     imports:[HttpClientModule], 
-    providers: [ImagesService, NgRedux, LoadingBarService,
+    providers: [ChannelsService, NgRedux, LoadingBarService,
       {
-        provide: ImagesService,
+        provide: ChannelsService,
         useClass: MockMyService
       }
     ]
   })
-  imagesService = TestBed.get(ImagesService);
+  imagesService = TestBed.get(ChannelsService);
 });
 
   it('should contain a search service', () => {
-    const imagesService = TestBed.get(ImagesService);
+    const imagesService = TestBed.get(ChannelsService);
     expect(imagesService).toBeTruthy();
   });
   
@@ -46,7 +46,7 @@ describe('ImagesService', () => {
     //         offset:0
     //   }
 
-    //   // spyOn(imagesService, 'searchImages').and.returnValue(of(response.data));
+    //   // spyOn(imagesService, 'searchChannels').and.returnValue(of(response.data));
       
     //    imagesService.searchImages(search)
     //   let response : searchResult;

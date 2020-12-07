@@ -4,28 +4,29 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { AuthComponent } from './auth/auth.component';
-import { ResultsListComponent } from './results-list/results-list.component';
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AuthComponent } from './components/auth/auth.component';
 
 import {LoadingBarModule, LoadingBarService} from "ngx-loading-bar";
 import { NgReduxModule, NgRedux } from '@angular-redux/store';
 
 import { ItemsReducer, InitialState, initialState } from './store/reducers';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    ResultsListComponent,
     FooterComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NgReduxModule,
     FormsModule,
     HttpClientModule,
-    
+    ReactiveFormsModule
   ],
   providers: [NgReduxModule, LoadingBarService],
   bootstrap: [AppComponent]

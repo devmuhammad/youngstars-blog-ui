@@ -1,11 +1,11 @@
 import { Component,Input, OnInit, OnChanges } from '@angular/core';
 
 import {LoadingBarService} from "ngx-loading-bar";
-import { GetItems } from '../store/actions';
+import { GetItems } from '../../store/actions';
 import { NgRedux, select } from '@angular-redux/store';
-import { InitialState } from '../store/reducers';
-import { searchResult } from '../store/interface'
-import { ImagesService } from '../services/images.service'
+import { InitialState } from '../../store/reducers';
+import { dataResult } from '../../store/interface'
+// import { ImagesService } from '../../services/images.service'
 import { Observable } from 'rxjs';
 
 @Component({
@@ -24,16 +24,16 @@ export class AuthComponent implements OnInit {
     ) {
     }
     
-    @select('items') srchResults$: Observable<searchResult>
-    srchResults: searchResult;
 
     // @Output()
 
     ngOnInit() {
-        this.srchResults$.subscribe(srchResults => this.srchResults = srchResults)
 
     }
    
 
+    changePage(){
+        this.login = !this.login
+    }
    
 }
