@@ -45,8 +45,9 @@ export class ChannelsService {
         console.log(datares)
         let myChannels = []
         let fetchCount = 0
+        let dg = 0
        
-        if (datares.length == 0) {
+        if (datares.length ==  dg) {
           this.loadingBarService.complete()
           return this.ngRedux.dispatch(LoadItems([]));
         }
