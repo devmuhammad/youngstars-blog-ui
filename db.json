@@ -11,6 +11,12 @@
       "email": "coded@gmail.com",
       "password": "ola",
       "id": 9
+    },
+    {
+      "username": "moh",
+      "email": "moh@gmail.com",
+      "password": "moh",
+      "id": 10
     }
   ],
   "channels": [
@@ -84,6 +90,16 @@
       "userid": 9,
       "channelid": 5,
       "id": 3
+    },
+    {
+      "userid": 9,
+      "channelid": 1,
+      "id": 4
+    },
+    {
+      "userid": 10,
+      "channelid": 2,
+      "id": 5
     }
   ]
 }

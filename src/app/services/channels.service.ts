@@ -1,6 +1,6 @@
     import { Injectable } from '@angular/core';
 
-    import { HttpClient } from '@angular/common/http';
+    import { HttpClient, HttpHeaders } from '@angular/common/http';
     import {LoadingBarService} from "ngx-loading-bar";
 
     import { dataResult } from '../store/interface';
@@ -42,8 +42,15 @@ export class ChannelsService {
     this.http
       .get(PROD_BASE_URL+'/userchannels?userid='+userid)
       .subscribe((datares: [dataResult]) => {
+        console.log(datares)
         let myChannels = []
         let fetchCount = 0
+       
+        if (datares.length == 0) {
+          this.loadingBarService.complete()
+          return this.ngRedux.dispatch(LoadItems([]));
+        }
+
         datares.forEach((element : any,) => {
 
           this.getChannelDetail(element.channelid)
@@ -62,9 +69,14 @@ export class ChannelsService {
   }
   
   joinChannel(details){
+    const headers= new HttpHeaders()
+  .set('Content-Type', 'application/json')
+  .set('Accept', 'application/json',)
+  .set('Access-Control-Allow-Origin', '*');
+
     let stats = new Subject<string>();
     this.http
-      .post(PROD_BASE_URL+'/userchannels',details)
+      .post(PROD_BASE_URL+'/userchannels',details,{headers: headers})
       .subscribe((datares: dataResult) => {
         // this.ngRedux.dispatch(GetItems());
         

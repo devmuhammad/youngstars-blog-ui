@@ -46,10 +46,10 @@ export class DashboardComponent implements OnInit {
 
   async getMyChannels(){
     await this.loadingBarService.start();
-    this.allchannel = false
+    
     await this.channelsService.getMyChannels(this.userDetails.id)
     this.channels$.subscribe(channels => {this.channels = channels; this.channelDup = this.channels})
-    
+    this.allchannel = false
   }
 
   async getDetails(){
@@ -68,6 +68,7 @@ export class DashboardComponent implements OnInit {
       userid : this.userDetails.id,
       channelid : channelid
     }
+    console.log(details)
     await(await this.channelsService.checkChannel(details)).subscribe((res) => {
       if (res) {
         this.loadingBarService.complete()
