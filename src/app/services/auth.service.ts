@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InitialState } from '../store/reducers';
 import { LoadingBarService } from 'ngx-loading-bar';
 import { GetItems, LoadItems } from '../store/actions';
@@ -22,6 +22,7 @@ export class AuthService {
   ) { 
   }
 
+  
   public isAuthenticated(): boolean {
     const token = JSON.parse(localStorage.getItem('!usrDet@'))
     // Check whether the token is expired and return
@@ -33,13 +34,18 @@ export class AuthService {
   
 
  async createUser(userDetails) {
-       
+  const headers= new HttpHeaders()
+  .set('Content-Type', 'application/json')
+  .set('Accept', 'application/json',)
+  .set('Access-Control-Allow-Origin', '*');
+  
     let stats = new Subject<string>();
     this.http
-      .post(PROD_BASE_URL+'/users',userDetails)
-      .subscribe((datares: dataResult) => {
+      .post(PROD_BASE_URL+'/users',userDetails,{headers:headers})
+      .subscribe((datares: any) => {
+        
         this.ngRedux.dispatch(GetItems());
-        const {password, ...rest} = userDetails
+        const {password, ...rest} = datares
           const userDet = rest
 
         localStorage.setItem('!usrDet@', JSON.stringify(userDet))

@@ -19,6 +19,7 @@ export class SignupComponent implements OnInit {
   msg = ''
 
   public userInfo = {
+    // id: (Math.floor(Math.random() * 100)+1),
     username: '',
     email: '',
     password:'',
